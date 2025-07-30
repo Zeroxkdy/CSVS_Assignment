@@ -1,31 +1,26 @@
- <a href="query.php">Pick another query</a>
- 
- <?php
-        //Query to get the GDP
-        $sql = "select name, gdp from countrydata_final;";
-       
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            
-            echo '<table style="width: 80%">';
+<div class="container py-4">
+    <a href="query.php" class="btn btn-outline-primary mb-3">⬅ Pick Another Query</a>
+    <h3 class="mb-4">Gross Domestic Product by Country</h3>
+
+    <?php
+    $sql = "SELECT name, gdp FROM countrydata_final;";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        echo '<div class="table-responsive">';
+        echo '<table class="table table-striped table-bordered">';
+        echo '<thead><tr><th>Country Name</th><th>GDP</th></tr></thead>';
+        echo '<tbody>';
+        while ($row = $result->fetch_assoc()) {
             echo '<tr>';
-            echo '<th style="text-align:left">This is a Country Name</th>';
-            echo '<th style="text-align:left">Gross Domestic Product</th>';
+            echo '<td>' . htmlspecialchars($row["name"]) . '</td>';
+            echo '<td>' . htmlspecialchars($row["gdp"]) . '</td>';
             echo '</tr>';
-            
-            while($row = $result->fetch_assoc()) {
-          
-            echo '<tr>';
-            echo '<td>';
-            echo $row["name"];
-            echo '&nbsp';
-            echo '<td>';
-            echo $row["gdp"];
-            echo '&nbsp';
-            echo '<br>';
-            echo '</tr>';
-            }
-            echo '</table>';
-                                                }
-                                        
+        }
+        echo '</tbody></table>';
+        echo '</div>';
+    } else {
+        echo '<div class="alert alert-warning">No data found.</div>';
+    }
     ?>
+</div>
