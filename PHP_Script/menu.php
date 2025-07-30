@@ -1,39 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Caf&eacute; Menu</title>
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/menu.css">
+    <meta charset="UTF-8">
+    <title>Data Query Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Optional Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="bodyStyle">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.php">Lola Research</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="query.php">Query</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contactUs">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-	<div id="header" class="mainHeader">
-		<hr>
-		<div class="center">Caf&eacute;</div>
-	</div>
-	<br>
-	<?php
-		// Get the application environment parameters from the Parameter Store.
-		include ('getAppParameters.php');
+<!-- Main Section -->
+<section class="py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="mb-4">Data Query Menu</h2>
+        <p class="lead mb-5">Choose the type of data you want to explore or retrieve.</p>
 
-		// Display the server metadata information if the showServerInfo parameter is true.
-		include('serverInfo.php');
-	?>
-	<hr>
-	<div class="topnav">
-		<a href="index.php">Home</a>
-		<a href="menu.php" class="active">Menu</a>
-		<a href="query.php" class="active">Query</a>
-	</div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <a href="gdp.php" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">GDP Data</h5>
+                            <p class="card-text text-muted">Access GDP-related statistics by country and year.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="population.php" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Population</h5>
+                            <p class="card-text text-muted">Explore population demographics across the globe.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="mortality.php" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Mortality</h5>
+                            <p class="card-text text-muted">Review mortality rates and related statistics.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="lifeexpectancy.php" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Life Expectancy</h5>
+                            <p class="card-text text-muted">Find global life expectancy trends and values.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="query2.php" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Custom Query 2</h5>
+                            <p class="card-text text-muted">A secondary query interface for advanced research.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="query3.php" class="text-decoration-none">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Custom Query 3</h5>
+                            <p class="card-text text-muted">Another powerful query tool for data insights.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3 mt-5">
+    &copy; 2025 Lola Social Research Organization. All rights reserved.
+</footer>
 
-
-	<div id="Copyright" class="center">
-		<h5>&copy; 2020, Amazon Web Services, Inc. or its Affiliates. All rights reserved.</h5>
-	</div>
-
-
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
