@@ -1,37 +1,27 @@
-<a href="query.php">Pick another query</a>
- 
- <?php
- 
-        //Query for the population data            
-        $sql = "select name, population, populationurban from countrydata_final;";
-        //$result = $conn->query($sql);
-        //echo(mysqli_get_connection_stats($conn));
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            //echo "success";
-            echo '<table style="width: 80%">';
+<div class="container py-4">
+    <a href="query.php" class="btn btn-outline-primary mb-3">⬅ Pick Another Query</a>
+    <h3 class="mb-4">Population and Urban Population by Country</h3>
+
+    <?php
+    $sql = "SELECT name, population, populationurban FROM countrydata_final;";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        echo '<div class="table-responsive">';
+        echo '<table class="table table-striped table-bordered">';
+        echo '<thead><tr><th>Country Name</th><th>Total Population</th><th>Urban Population</th></tr></thead>';
+        echo '<tbody>';
+        while ($row = $result->fetch_assoc()) {
             echo '<tr>';
-            echo '<th style="text-align:left">Country Name</th>';
-            echo '<th style="text-align:left">Population</th>';
-            echo '<th style="text-align:left">Urban Population</th>';
+            echo '<td>' . htmlspecialchars($row["name"]) . '</td>';
+            echo '<td>' . htmlspecialchars($row["population"]) . '</td>';
+            echo '<td>' . htmlspecialchars($row["populationurban"]) . '</td>';
             echo '</tr>';
-            
-            while($row = $result->fetch_assoc()) {
-            //echo '<p>';
-           
-            echo '<tr>';
-            //echo 'Country_Name  Mobile_phone_subscribers  Mortality_under5';
-            echo '<td>';
-            echo $row["name"];
-            echo '&nbsp';
-            echo '<td>';
-            echo $row["population"];
-            echo '&nbsp';
-            echo '<td>';
-            echo $row["populationurban"];
-            echo '<br';
-            echo '</tr>';
-            }
-            echo '</table>';
         }
+        echo '</tbody></table>';
+        echo '</div>';
+    } else {
+        echo '<div class="alert alert-warning">No data found.</div>';
+    }
     ?>
+</div>
